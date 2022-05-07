@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <style>
+        body{
+            display:block ;
+            width: 100%;
+            display: grid;
+        }
+  h1{
+    margin-left: 15px;
+    padding-top: 15px;
+    font-family: Arial,sans-serif;
+    text-rendering: optimizeLegibility;
+    padding-bottom: 4px;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.2;
+    text-align: center;
+}
+h4{
+    text-align: center;
+
+}
+form{
+    width: 300px;
+    margin-left: 20px;
+}
+form label{
+    display: flex;
+    margin-top: 20px;
+    font-size: 13px;
+    font-family: Arial,sans-serif;
+}
+form input{
+    width: 100%;
+    padding: 3px;
+    border: none;
+    border: 1px solid gray;
+    outline: none;
+    box-sizing: border-box;
+}
+input[type="submit"]{
+    width: 100%;
+    margin-top: 20px;
+    height:24px;
+    font-family: Arial,sans-serif;
+    font-size: 11px;
+    background-color: #1b6fee;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+p{
+    text-align: center;
+    padding-top: 20px;
+    font-size: 12px; 
+}
+p a{
+     text-decoration: none;
+    color: rgb(43, 115, 187);
+    cursor: pointer;
+}
+.para-2{
+    margin-top: -10px;
+    font-size: 13px
+}
+.para-2 a{
+    text-decoration: none;
+    color: rgb(39, 98, 200);
+    cursor: pointer;
+}
+
+    #helpSection p{
+        font-size: 08px;
+        margin-bottom: -15px;
+    }
+    
+ .signup-box{
+           
+        width: 340px;
+        margin: auto;
+        margin-top: 20px;
+        padding-top: 20px;
+        height: 358px;
+        border-radius: 12px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+       }
+       #container>div{
+           
+           width: 380px;
+           padding-left: 20px;
+           margin-bottom: 50px;
+           
+       }
+        
+       input{
+           width: 90%;
+           height: 30px;
+           margin: auto;
+           border-radius: 5px;
+           border: solid rgba(108, 103, 103, 0.609);
+       }
+       #Sbutton{
+           margin: auto;
+       }
+       #logoimg{
+           margin: auto;
+           text-align: center;
+       }
+       
+    </style>
+</head>
+<body>
+    <img id="logoimg" src="https://sso.masaischool.com/brand_dark.svg" alt="">
+    <div class="signup-box">
+        <h1>Sign In</h1>
+       <form id="form">
+           <label for="">Email</label>
+           <input type="email" id="email" placeholder="Enter email">
+           <label for="">Password</label>
+           <input type="password" id="password" placeholder="Enter password">
+           
+           <p>By creating an account, you agree to our <a href="#">Privacy Notice</a> <br> and <a href="#">Conditions of Use.</a> </p>
+           <input type="submit" value="SIGN IN">
+           <p class="para-2">Don't have an account?<a href="signup.html">Sign up</a></p>
+       </form>
+
+    </div>
+    
+    
+</body>
+</html>
+<script>
+var userdata = JSON.parse(localStorage.getItem("userSaved"))
+
+console.log(userdata)
+
+document.querySelector("#form").addEventListener("submit",storeIt )
+function storeIt(){
+    event.preventDefault()
+
+    var email = document.querySelector("#email").value
+    var password = document.querySelector("#password").value
+if(email=="" || password==""){
+    alert("Please email and password")
+    return
+}
+  for(var i = 0; i < userdata.length; i++){
+      if(email == userdata[i].emai && password == userdata[i].password){
+          window.location.href= "https://masaischool.com/"
+          return
+      }
+  }
+  alert("Invalid email or password")
+}
+
+
+</script>
